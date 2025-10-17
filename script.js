@@ -6,20 +6,17 @@ function Person(name, age) {
 
 // Add greet method to Person prototype
 Person.prototype.greet = function() {
-  console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
 };
 
 // Employee constructor inheriting from Person
 function Employee(name, age, jobTitle) {
-  // Call Person constructor to initialize name and age
   Person.call(this, name, age);
   this.jobTitle = jobTitle;
 }
 
 // Inherit from Person prototype
 Employee.prototype = Object.create(Person.prototype);
-
-// Reset constructor reference
 Employee.prototype.constructor = Employee;
 
 // Add jobGreet method to Employee prototype
